@@ -5,11 +5,11 @@ pipeline {
       steps {
         parallel(
           "date": {
-            sh 'echo "date"'
+            echo 'date'
             
           },
           "id": {
-            sh 'echo "id"'
+            echo 'id'
             
           }
         )
