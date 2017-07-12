@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('error') {
       steps {
         parallel(
           "date": {
@@ -18,6 +18,11 @@ pipeline {
     stage('echo') {
       steps {
         echo 'message'
+      }
+    }
+    stage('mail') {
+      steps {
+        mail(subject: 'test', body: 'test', to: 'jenkins@jenkins.localdomain')
       }
     }
   }
