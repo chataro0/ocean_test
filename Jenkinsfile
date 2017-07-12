@@ -1,30 +1,26 @@
 pipeline {
   agent any
   stages {
-    stage('error') {
+    stage('switch') {
+      steps {
+        catchError() {
+          sh 'exit 1'
+        }
+        
+      }
+    }
+    stage('if') {
       steps {
         parallel(
-          "date": {
-            timestamps()
-            echo 'Date: '
+          "OK": {
+            echo 'OK'
             
           },
-          "id": {
-            echo 'id'
+          "NG": {
+            echo 'NG'
             
           }
         )
-      }
-    }
-    stage('echo') {
-      steps {
-        echo 'message'
-        sleep 1
-      }
-    }
-    stage('mail') {
-      steps {
-        mail(subject: 'test', body: 'test', to: 'jenkins@jenkins.localdomain')
       }
     }
   }
