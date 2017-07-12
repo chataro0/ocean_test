@@ -4,7 +4,7 @@ pipeline {
     stage('switch') {
       steps {
         catchError() {
-          sh 'exit 1'
+          sh '"exit 1"'
         }
         
       }
