@@ -5,7 +5,7 @@ pipeline {
       steps {
         parallel(
           "date": {
-            echo 'date'
+            timestamps()
             
           },
           "id": {
@@ -18,6 +18,7 @@ pipeline {
     stage('echo') {
       steps {
         echo 'message'
+        sleep 1
       }
     }
     stage('mail') {
