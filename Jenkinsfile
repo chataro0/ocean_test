@@ -6,6 +6,7 @@ pipeline {
         parallel(
           "date": {
             timestamps()
+            sh 'date'
             
           },
           "id": {
